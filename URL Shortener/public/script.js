@@ -23,7 +23,7 @@ window.shortenUrl = async function () {
   const longUrl = input.value.trim();
   if (!longUrl) return;
 
-  try{  const response = await fetch("https://short-linkz.vercel.app/api/url/shorten", {
+  try{  const response = await fetch("http://localhost:5000/api/url/shorten", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ originalUrl: longUrl }),
@@ -65,3 +65,4 @@ function showToast(msg) {
 document.getElementById("longUrl").addEventListener("keydown", (e) => {
   if (e.key === "Enter") window.shortenUrl();
 });
+
