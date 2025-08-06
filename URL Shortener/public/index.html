@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="modeToggle" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div class="container">
+    <h1>URL Shortener</h1>
+    <input type="text" id="longUrl" placeholder="Enter long URL" />
+    <button onclick="shortenUrl()">Shorten</button>
+    
+    <div id="result" class="hidden">
+      <p>
+        Short URL: <a href="#" id="shortUrl" target="_blank"></a>
+        <button onclick="copyToClipboard('shortUrl')">Copy</button>
+      </p>
+    </div>
+  </div>
+
+  <div id="toast" class="hidden">Copied to clipboard!</div>
+
+  <h3>Made with ❤ by Satvik</h3>
+  
+  <script type="module" src="script.js"></script>
+</body>
+</html>

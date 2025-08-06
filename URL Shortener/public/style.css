@@ -1,0 +1,210 @@
+:root {
+  --font: 'Segoe UI', sans-serif;
+  --light-gradient: linear-gradient(to bottom right, #f0f9ff, #a4eafb);
+  --dark-gradient: linear-gradient(to bottom right, #3e5771, #02305fd6);
+  --light-bg: rgba(255, 255, 255, 0.839);
+  --dark-bg: rgba(30, 36, 43, 0.866);
+  --light-text: #000;
+  --dark-text: #f0f0f0;
+  --primary: #007bff;
+  --toast-bg: rgba(0, 0, 0, 0.75);
+  --transition: 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--light-gradient);
+  color: var(--light-text);
+  transition: background var(--transition), color var(--transition);
+}
+
+.dark-mode {
+  background: var(--dark-gradient);
+  color: var(--dark-text);
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background: var(--light-bg);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.574);
+  transition: background var(--transition);
+  width: 90%;
+  max-width: 600px;
+}
+
+.dark-mode .container {
+  background: var(--dark-bg);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+#qrCodeCanvas {
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Toggle Switch */
+.toggle-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--toast-bg);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+/* Responsive */
+/* Mobile-specific styling */
+@media (max-width: 600px) {
+  body {
+    padding: 0 1rem; /* Adds side margins on mobile */
+  }
+
+  .container {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  input[type="text"] {
+    width: 90%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    margin-top: 0.4rem;
+    width: 100%;
+  }
+
+  #result p {
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+
+  #qrCodeCanvas {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .toggle-container {
+    top: 0.5rem;
+    right: 0.5rem;
+    transform: scale(0.9);
+  }
+
+  #toast {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
